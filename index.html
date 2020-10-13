@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DIO</title>
+
+    <!-- meta information -->
+    <meta name="author" content="Dr. Jörg Witzel, Markus Studer" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="resources/img/favicon.png" />
+    <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+    <!-- CSS reset and grid -->
+    <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+    <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+
+    <!-- styles for included libraries -->
+
+    <!-- chartist -->
+    <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+    <!-- codemirror -->
+    <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+    <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+    <!-- standard presentation styles -->
+    <link href="resources/css/style.css" rel="stylesheet" />
+
+    <!-- custom presentation styles -->
+    <link href="resources/css/custom.css" rel="stylesheet" />
+
+    <!-- js needed in head -->
+
+    <!-- greuler -->
+    <script src="vendor/d3/d3-3.5.6.js"></script>
+    <script src="vendor/cola/cola.v3.min.js"></script>
+    <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+    <!-- html5 dataset shim for IE -->
+    <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="fallback-message">
+        <p>
+            Your browser <strong>doesn't support the features required</strong> by impress.mod.js,
+            so you are presented with a simplified version of this presentation.
+        </p>
+        <p>
+            For the best experience please use the latest <strong>Chrome</strong>, <strong>Safari</strong>
+            or <strong>Firefox</strong> browser.
+        </p>
+    </div>
+
+    <div id="impress">
+
+        <div class="step">
+            <h4><strong>7.10.2020</strong> | <a href="https://workshop.adw-goe.de/programm/">Workshop der AG eHumanities</a></h4>
+            <h4><strong>FAIR &amp; Co.: Sicht- und Verfügbarkeit der digitalen Akademieforschung in einer vernetzten Wissenschaftslandschaft</strong></h4>
+            <h1 class="down-100">Datenstandards und Normdaten</h1>
+
+            <h2 class="red up-25">FAIR-Data in der Mittelalter- und Neuzeit-Epigraphik</h2>
+            <div class="centered">
+				<a href="http://www.inschriften.net/" align="center">http://www.inschriften.net/</a>
+			</div>
+            <!-- h4 class="down-100">
+                <strong>Slides:</strong>
+                <a href="#" title="View the presentation online">
+                    Link
+                </a>
+            </h4 -->
+			<br/>
+            <h5>
+                <strong><a href="http://www.adwmainz.de/digitalitaet/digitale-akademie/team.html">Jörg Witzel, Markus Studer</a></strong> |
+                <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter" class="twitter-icon" />
+                <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter">@digicademy</a> |
+                <img src="resources/img/Octicons-mark-github.svg" alt="Twitter" class="gh-icon" />
+                <a href="https://github.com/digicademy/" title="Digital Academy on GitHub">digicademy</a> |
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+            </h5>
+        </div>
+        
+        <div class="step">
+			<h2>Ausgangslage</h2>
+			<h3 class="red up-25 after-25">XML-Standard für die Epigraphik</h3>
+			<br/>
+			<ul>
+				<li><strong>TEI-EpiDoc</strong></li>
+				<li>starke Orientierung an der Modellierung antiker Epigraphik</li>
+				<li>zum Teil geringe Ausdifferenzierung der Modellierungsmöglichkeiten mittelalterlicher und frühneuzeitlicher Epigraphik</li>
+			</ul>
+        </div>
+        
+        <div class="step">
+			<h2>Ausblick</h2>
+			<h3 class="red up-25 after-25">Normdaten und Datenstandards bei den DIO</h3>
+			<h3><em>1. Wappen</em></h3>
+			<ul>
+				<li>Sowohl in der TEI als auch in EpiDoc: <code>&lt;heraldry&gt;</code> als Kindelement der <code>&lt;decoNote&gt;</code></li>
+				<li><code>&lt;heraldry&gt;</code> wird in den EpiDoc-Guidelines nicht beschrieben</li>
+			</ul>
+            <br/>
+            <ul>
+				<li>37 % der Inschriftenartikel innerhalb der DI-Onlinebände enthalten Wappen</li>
+				<li>Direkte Bestimmung der Wappen, Ahnenproben oder Blasonierungen</li>
+				<li>Normdaten: Referenzierung von Wappen</li>
+				<li>Datenstandard: Entspr. Erweiterung von EpiDoc</li>
+			</ul>
+        </div>
+        
+        <div class="step">
+			<h2>Modellierungsbeispiel</h2>
+				<div>
+				<pre class="sourcecode">
+<code class="linenumbers js, language-xml">&lt;heraldry&gt;
+   &lt;listCoatOfArms&gt;
+      &lt;coatOfArms&gt;
+         &lt;shield tincture="azure"&gt;
+            &lt;charge type="plant" subtype="fleur-de-lis" tincture="or" quantity="3"/&gt;
+         &lt;/shield&gt;
+      &lt;/coatOfArms&gt;
+   &lt;/listCoatOfArms&gt;
+&lt;/heraldry&gt;
+</code>
+				</pre>
+			</div> 
+			<div class="mfp-lightbox row">
+				<div> 
+					<div class="three columns"> 
+						<a href="resources/img/Wappen_Wiesbaden.png">
+							<img src="resources/img/Wappen_Wiesbaden.png" alt="Fehler beim Laden des Bildes" />
+						</a>
+					</div>
+					<div class="nine columns"><br/>Abbildung:<br/><a href="https://commons.wikimedia.org/wiki/File:Wappen_Wiesbaden.svg#/media/Datei:Wappen_Wiesbaden.svg">https://commons.wikimedia.org/wiki/File:Wappen_Wiesbaden.svg#/media/Datei:Wappen_Wiesbaden.svg</a></div>
+				</div> 
+			</div>       
+        </div>
+        
+        <div class="step">
+            <h3><em>2. Schriftarten und Schriftbeschreibung</em></h3>
+            <div>
+                <br/>
+
+                <br/>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <p class="small up-25">Die Bestimmung der Schriftart und die Schriftbeschreibung haben bei den Deutschen Inschriften einen großen Stellenwert.</p>
+                    <br/>
+                    <p class="small up-25">Die Deutschen Inschriften haben in ihrer Publikation "Terminologie zur Schriftbeschreibung" eine Nomenklatur zur Beschreibung von Schriften in mittelalterlichen und frühneuzeitlichen Inschriften geschaffen, die sich gut in einer Auszeichnungssprache wiedergeben lässt.</p>
+                    <br/>
+                    <p class="small up-25">In EpiDoc gibt es bisher keine Möglichkeit, verschiedene Schriftarten durch ein entsprechendes Attribut dem transkribierten Text insgesamt oder in Abschnitten zuzuweisen.</p>
+                </div>
+                <div class="two columns">
+                    <p>   </p>
+                </div>
+                <div class="mfp-lightbox row">
+                    <div class="four columns">
+                        <div>
+                            <a href="resources/img/terminologie.jpg">
+                                <img src="resources/img/terminologie.jpg" alt="Fehler beim Laden des Bildes"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="row">
+                <div class="seven columns">
+                    <h4>Epitaph eines Ehepaares<br/>aus der Kirche St. Johannis in Lüneburg, 1575</h4>
+                </div>
+                <div class="one column">
+                    <p>   </p>
+                </div>
+                <div class="mfp-lightbox row">
+                    <div class="four columns">
+                        <div>
+                            <a href="resources/img/di-100_0489_1.jpg">
+                                <img src="resources/img/di-100_0489_1.jpg" alt="Fehler beim Laden des Bildes"/>
+                            </a>
+                        </div>
+                        <div>
+                            <p class="x-small up-25"><br/>® Akademie der Wissenschaften zu Göttingen (Sabine Wehking)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="row">
+                <div>
+                    <h4>Inschrift auf dem Fries des Epitaphs</h4>
+                </div>
+                <div>
+                    <br/><p class="small up-25">Also hefft Godt de Werlt geleuet dat he sine(n) einige(n) Sone gaff, vp dat alle de a(n)<br/>
+                        en geloue(n), nicht vorlare(n) werde(n), sunder dat ewige leuent hebben. Joha. iij.</p><br/>
+                </div>
+                <div class="mfp-lightbox row">
+                        <div>
+                            <a href="resources/img/di-100_0489_3.jpg">
+                                <img src="resources/img/di-100_0489_3.jpg" alt="Fehler beim Laden des Bildes"/>
+                            </a>
+                        </div>
+                </div>
+                <br/>
+                <div>
+                    <p class="x-small up-25">® Akademie der Wissenschaften zu Göttingen (Sabine Wehking)</p>
+                </div>
+                <br/>
+                <div>
+                    <p  class="small up-25">Schriftart(en): gotische Minuskel mit Frakturversalien</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Dieselbe Inschrift, ausgezeichnet in EpiDoc </h3>
+            <div>
+                <pre class="sourcecode">
+<code class="linenumbers js, language-xml">&lt;div type="textpart" subtype="section" n="G"&gt;
+    &lt;ab typeface="gothic minuscule"&gt;
+        &lt;lb n="1"/&gt;
+        &lt;hi rend="versal" typeface="fraktur"&gt;A&lt;/hi&gt;
+        lso hefft
+        &lt;hi rend="versal" typeface="fraktur"&gt;G&lt;/hi&gt;
+        odt de Werlt geleuet dat he
+        &lt;expan&gt;&lt;abbr&gt;sine&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        &lt;expan&gt;&lt;abbr&gt;einige&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        &lt;hi rend="versal" typeface="fraktur"&gt;S&lt;/hi&gt;
+        one gaff, vp dat alle de
+        &lt;expan&gt;&lt;abbr&gt;a&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        &lt;lb n="2"/&gt;
+        en
+        &lt;expan&gt;&lt;abbr&gt;geloue&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        , nicht
+        &lt;expan&gt;&lt;abbr&gt;vorlare&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        &lt;expan&gt;&lt;abbr&gt;werde&lt;/abbr&gt;&lt;ex&gt;n&lt;/ex&gt;&lt;/expan&gt;
+        , sunder dat ewige leuent hebben.
+        &lt;hi rend="versal" typeface="fraktur"&gt;J&lt;/hi&gt;
+        oha. iij.
+    &lt;/ab&gt;
+&lt;/div&gt;
+</code>
+                </pre>
+            </div>
+        </div>
+        
+
+
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+
+    <!-- chartist -->
+    <script src="vendor/chartist/chartist.min-0.9.7.js"></script>
+    <script src="resources/js/chartist.charts.js"></script>
+
+    <!-- codemirror -->
+    <script src="vendor/codemirror/lib/codemirror.js"></script>
+    <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+            mode: "application/sparql-query",
+            matchBrackets: true,
+            lineNumbers: true,
+            viewportMargin: Infinity
+        });
+    </script>
+
+    <!-- highlight -->
+    <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="resources/js/hljs.linenumbering.js"></script>
+
+    <!-- magnific popup -->
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+    <script src="resources/js/magnific-popup.lightbox.js"></script>
+
+    <!-- impress.mod.js -->
+    <script src="vendor/impress/impress.fork.js"></script>
+    <script src="vendor/impress/impress-slidenum.js"></script>
+    <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+
+</body>
+</html>
